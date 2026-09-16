@@ -5,7 +5,6 @@ $taskTitle = "Вивчити основи PHP";
 $taskTimeEstimate = 3;
 
 ?>
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>

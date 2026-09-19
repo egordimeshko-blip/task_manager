@@ -6,7 +6,7 @@ $taskTitle = "Вивчити основи PHP";
 
 $taskTimeEstimate = 3;
 
-$isCompleted = false;
+$isCompleted = true;
 
 ?>
 

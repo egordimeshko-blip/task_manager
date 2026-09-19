@@ -27,3 +27,23 @@ function getCurrentGreeting() {
 }
 $taskTitle = "Вивчити основи PHP та створення власних функцій для форматування даних";
 ?>
+
+<header>
+    <h1><?= getCurrentGreeting() ?></h1>
+</header>
+
+<main>
+    <ul>
+        <li class="<?= $isCompleted ? 'task-done' : 'task-pending' ?>">
+            <?= formatTitle($taskTitle) ?>
+            <?php if ($isCompleted): ?>
+                Виконано
+            <?php else: ?>
+                В процесі
+            <?php endif; ?>
+        </li>
+        <li><?= $taskTimeEstimate ?> години</li>
+    </ul>
+</main>
+
+![alt text](image.png)

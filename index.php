@@ -1,9 +1,32 @@
 <?php
 $appName = "Task Manager";
-$taskTitle = "Вивчити основи PHP та створення власних функцій для форматування даних і локалізації дати";
 
-$taskTimeEstimate = 3;
-$isCompleted = true;
+$tasks = [
+    [
+        'id' => 1,
+        'title' => "Виконати лабораторну роботу №5",
+        'priority' => "High",
+        'is_completed' => false
+    ],
+    [
+        'id' => 2,
+        'title' => "Прочитати конспект з PHP",
+        'priority' => "Medium",
+        'is_completed' => true
+    ],
+    [
+        'id' => 3,
+        'title' => "Підготувати звіт lab5.md",
+        'priority' => "High",
+        'is_completed' => false
+    ],
+    [
+        'id' => 4,
+        'title' => "Зробити git commit та push",
+        'priority' => "Low",
+        'is_completed' => true
+    ]
+];
 
 function formatTitle($text, $maxLength = 20) {
     if (strlen($text) > $maxLength) {
@@ -49,16 +72,13 @@ function getCurrentGreeting() {
 
 <main>
     <ul>
-        <li class="<?= $isCompleted ? 'task-done' : 'task-pending' ?>">
-            <?= formatTitle($taskTitle) ?>
-
-            <?php if ($isCompleted): ?>
-                Виконано
-            <?php else: ?>
-                В процесі
-            <?php endif; ?>
-        </li>
-        <li><?= $taskTimeEstimate ?> години</li>
+        <?php foreach ($tasks as $task): ?>
+            <li class="<?= $task['is_completed'] ? 'task-done' : 'task-pending' ?>">
+                <?= formatTitle($task['title']) ?> 
+                (Пріоритет: <?= $task['priority'] ?>) —
+                <?= $task['is_completed'] ? "Виконано" : "В процесі" ?>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </main>
 
